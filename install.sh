@@ -15,7 +15,8 @@ case "${1:-desktop}" in
         bash "$ROOT/scripts/setup-debian-minimal.sh"
         ;;
     dev)
-        bash "$ROOT/scripts/setup-packages.sh"
+        bash "$ROOT/scripts/setup-debian-minimal.sh"
+        bash "$ROOT/scripts/setup-bookworm-dev.sh"
         ;;
     configure)
         bash "$ROOT/scripts/configure-user.sh"
@@ -27,7 +28,7 @@ case "${1:-desktop}" in
         bash "$ROOT/scripts/check.sh"
         ;;
     *)
-        printf 'Usage: %s {desktop|packages|configure|surface|tlp|check}\n' "$0" >&2
+        printf 'Usage: %s {desktop|dev|configure||tlp|check}\n' "$0" >&2
         exit 2
         ;;
 esac
